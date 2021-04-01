@@ -36,9 +36,9 @@ custom_file_path:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+# scheme: Muse
 #scheme: Mist
-#scheme: Pisces
+scheme: Pisces
 #scheme: Gemini
 
 # Dark Mode
@@ -66,8 +66,8 @@ custom_logo: #/uploads/custom-logo.jpg
 # CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org
 creative_commons:
   license: by-nc-sa
-  sidebar: false
-  post: false
+  sidebar: true
+  post: true
   language:
 
 
@@ -80,11 +80,11 @@ creative_commons:
 # Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.
 # External url should start with http:// or https://
 menu:
-  #home: / || fa fa-home
-  #about: /about/ || fa fa-user
-  #tags: /tags/ || fa fa-tags
-  #categories: /categories/ || fa fa-th
-  #archives: /archives/ || fa fa-archive
+  home: / || fa fa-home
+  about: /about/ || fa fa-user
+  tags: /tags/ || fa fa-tags
+  categories: /categories/ || fa fa-th
+  archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
@@ -92,7 +92,7 @@ menu:
 # Enable / Disable menu icons / item badges.
 menu_settings:
   icons: true
-  badges: false
+  badges: true
 
 
 # ---------------------------------------------------------------
@@ -102,33 +102,43 @@ menu_settings:
 
 sidebar:
   # Sidebar Position.
+  # 侧边栏位置, 可选值: left | right (仅适用于 Pisces | Gemini).
   position: left
   #position: right
 
   # Manual define the sidebar width. If commented, will be default for:
+  # 手动定义侧边栏宽度. 如果注释，将默认为：
   # Muse | Mist: 320
   # Pisces | Gemini: 240
   #width: 300
 
   # Sidebar Display (only for Muse | Mist), available values:
-  #  - post    expand on posts automatically. Default.
-  #  - always  expand for all pages automatically.
-  #  - hide    expand only when click on the sidebar toggle icon.
-  #  - remove  totally remove sidebar including sidebar toggle.
+  # 侧边栏显示, 可选值 (仅适用于 Muse | Mist):
+  #  - post    默认行为，在文章页面（拥有目录列表）时显示
+  #  - always  在所有页面中都显示
+  #  - hide    在所有页面中都隐藏（可以手动展开）
+  #  - remove  完全移除
   display: post
 
   # Sidebar padding in pixels.
   padding: 18
   # Sidebar offset from top menubar in pixels (only for Pisces | Gemini).
+  # 侧边栏相对于顶部菜单栏的偏移量（以像素为单位） (仅适用于 Pisces | Gemini).
   offset: 12
 
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: #/images/avatar.gif
+  # 头像资源路径，可以在主题目录下，也可以在站点目录，还可以是网络链接
+  # 将头像放至主题目录下 (source/images): /images/avatar.gif
+  # 将头像放至站点目录下 (source/uploads): /uploads/avatar.gif
+  # 或者任何头像URL: http(s)://example.com/avatar.png
+  url: /uploads/avatar.png #/images/avatar.gif
   # If true, the avatar will be dispalyed in circle.
-  rounded: false
+  # 如果为 true, 头像将会显示为圆形.
+  rounded: true
   # If true, the avatar will be rotated with the cursor.
+  # 如果为 true, 当光标移动至头像时，头像会旋转.
   rotated: false
 
 # Posts / Categories / Tags in sidebar.
@@ -138,8 +148,12 @@ site_state: true
 # Usage: `Key: permalink || icon`
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
+# Usage: `Key: permalink || icon`
+# Key 是向最终用户显示的链接标签.
+# `||` 分隔符之前的值是目标的永久链接.
+# `||` 分隔符后面的值是FontAwesome图标的名称。如果未指定图标（带或不带分隔符），则将加载globe图标.
 social:
-  #GitHub: https://github.com/yourname || fab fa-github
+  GitHub: https://github.com/lianglei777 || fab fa-github
   #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
@@ -152,7 +166,7 @@ social:
 
 social_icons:
   enable: true
-  icons_only: false
+  icons_only: true
   transition: false
 
 # Blog rolls
@@ -167,13 +181,18 @@ links:
 
 # Table of Contents in the Sidebar
 # Front-matter variable (unsupport wrap expand_all).
+# 设置文章目录
 toc:
+  # 是否启用侧边栏文章目录.
   enable: true
   # Automatically add list number to toc.
+  # 是否自动将列表编号添加到TOC.
   number: true
   # If true, all words will placed on next lines if header width longer then sidebar width.
+  # 如果为true，如果标题宽度大于侧边栏宽度，则所有单词将放在下一行.
   wrap: false
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
+  # 如果为true，将显示帖子中的所有TOC级别，而不是其中的激活部分.
   expand_all: false
   # Maximum heading depth of generated toc.
   max_depth: 6
@@ -198,22 +217,22 @@ language_switcher: false
 
 footer:
   # Specify the year when the site was setup. If not defined, current year will be used.
-  #since: 2020
+  since: 2021
 
   # Icon between year and copyright info.
   icon:
     # Icon name in Font Awesome. See: https://fontawesome.com/icons
     name: fa fa-heart
     # If you want to animate the icon, set it to true.
-    animated: false
+    animated: true
     # Change the color of icon, using Hex Code.
     color: "#ff0000"
 
   # If not defined, `author` from Hexo `_config.yml` will be used.
-  copyright:
+  copyright: lianglei
 
   # Powered by Hexo & NexT
-  powered: true
+  powered: false
 
   # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn
   beian:
@@ -225,7 +244,6 @@ footer:
     gongan_num:
     # The icon for gongan beian. See: http://www.beian.gov.cn/portal/download
     gongan_icon_url:
-
 
 # ---------------------------------------------------------------
 # Post Settings
@@ -252,6 +270,7 @@ post_meta:
 # Dependencies: https://github.com/next-theme/hexo-word-counter
 symbols_count_time:
   separated_meta: true
+  item_text_post: true
   item_text_total: false
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
@@ -356,27 +375,30 @@ codeblock:
   # Code Highlight theme
   # All available themes: https://theme-next.js.org/highlight/
   theme:
-    light: default
+    light: dark
     dark: tomorrow-night
   prism:
     light: prism
     dark: prism-dark
   # Add copy button on codeblock
   copy_button:
-    enable: false
+    enable: true
     # Available values: default | flat | mac
     style:
 
 back2top:
+  # 是否启用点击返回顶部按钮
   enable: true
   # Back to top in sidebar.
-  sidebar: false
+   # 是否在侧边栏显示点击返回顶部按钮
+  sidebar: true
   # Scroll percent label in b2t button.
-  scrollpercent: false
+   # 是否在返回顶部按钮显示已滚动百分比
+  scrollpercent: true
 
 # Reading progress bar
 reading_progress:
-  enable: false
+  enable: true
   # Available values: left | right
   startAt: left
   # Available values: top | bottom
@@ -387,7 +409,7 @@ reading_progress:
 
 # Bookmark Support
 bookmark:
-  enable: false
+  enable: true
   # Customize the color of the bookmark.
   color: "#222"
   # If auto, save the reading progress when closing the page or clicking the bookmark-icon.
@@ -396,8 +418,8 @@ bookmark:
 
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
-  enable: false
-  permalink: https://github.com/yourname
+  enable: true
+  permalink: https://github.com/lianglei777
   title: Follow me on GitHub
 
 
@@ -733,7 +755,7 @@ algolia_search:
 # Local Search
 # Dependencies: https://github.com/next-theme/hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto
@@ -940,3 +962,8 @@ vendors:
 css: css
 js: js
 images: images
+
+# 文章结束标记
+passage_end_tag:
+  # 是否显示文章结束标记
+  enable: true
