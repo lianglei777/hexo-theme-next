@@ -193,7 +193,7 @@ toc:
   wrap: false
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
   # 如果为true，将显示帖子中的所有TOC级别，而不是其中的激活部分.
-  expand_all: false
+  expand_all: true
   # Maximum heading depth of generated toc.
   max_depth: 6
 
